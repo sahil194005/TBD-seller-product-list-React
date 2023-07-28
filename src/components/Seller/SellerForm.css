@@ -1,27 +1,33 @@
-*{
-    margin:0;
-    padding:0.2rem;
+* {
+    margin: 0;
+    padding: 0.2rem;
 }
 
-.sellerForm{
+.sellerForm {
     box-sizing: border-box;
-    padding:2rem;
-    border:1px solid black;
-    display:flex;
-    width:80%;
-    /* margin:1rem auto 1rem; */
-    
+    padding: 2rem;
+    border: 1px solid black;
+    display: flex;
+    width: 80%;
 }
 
-.seller-form--input__div{
-    padding:1rem;
+.seller-form--input__div {
+    padding: 1rem;
 }
-.seller-form--input__div input{
-    width:50%
+
+.seller-form--input__div input {
+    width: 50%
 }
-.seller-form--input--size-div{
-    display:flex;
+
+.seller-form--input--size-div {
+    display: flex;
 }
-.seller-form--input--size-div input{
-    width:20%
+
+.seller-form--input--size-div input {
+    width: 50%
+}
+
+.seller-form--input--size-indi-div {
+    display: flex;
+    flex-direction: column;
 }

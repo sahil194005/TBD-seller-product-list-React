@@ -1,4 +1,6 @@
 .cart-button{
     width:10%;
     height:6rem;
+    font-size:large;
+    border-radius:10px;
 }
