@@ -9,7 +9,7 @@ const SellerForm = (props) => {
 	const medium = useRef(null);
 	const large = useRef(null);
 
-	const { setProducts } = useContext(ProductsContext);
+	const { Dispatch } = useContext(ProductsContext);
 	const formSubmitHandler = (e) => {
 		e.preventDefault();
 		let obj = {
@@ -19,14 +19,9 @@ const SellerForm = (props) => {
 			small: small.current.value,
 			medium: medium.current.value,
 			large: large.current.value,
-			id: Math.random()
+			id: Math.random(),
 		};
-		setProducts((prevState) => {
-			
-
-			let newArr = [...prevState, obj];
-			return newArr;
-		})
+		Dispatch({ type: "ADD_PROD_2_LIST", product: obj });
 	};
 	return (
 		<form

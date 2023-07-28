@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    padding:0;
+}
+.singleCart--item{
+    
+    border:1px solid black;
+    padding:1rem 0 1rem 0.4rem;
+    display:flex;
+  
+    margin:1rem;
+}
+.singleCart--item div{
+
+    width:20%;
+   
+}

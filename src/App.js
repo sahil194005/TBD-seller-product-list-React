@@ -6,7 +6,7 @@ import ProductsList from "./components/Products/ProductsList";
 import Cart from "./components/Cart/Cart";
 import { ProductsContextProvider } from "./Context/ProductsContext";
 const App = (props) => {
-	const [isCart, setCart] = useState(false);
+	const [isCart, setCart] = useState(true);
 	return (
 		<ProductsContextProvider>
 			{isCart && <Cart isCart={isCart} setCart={setCart} />}

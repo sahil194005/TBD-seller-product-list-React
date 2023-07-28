@@ -4,13 +4,13 @@ import { useContext } from "react";
 import { ProductsContext } from "../../../Context/ProductsContext";
 const sizeReducer = (state, action) => {
 	switch (action.type) {
-		case "SMALL": {
+		case "SMALL_COUNT_DEC": {
 			return { ...state, smallCount: state.smallCount - 1 };
 		}
-		case "LARGE": {
+		case "LARGE_COUNT_DEC": {
 			return { ...state, largeCount: state.largeCount - 1 };
 		}
-		case "MEDIUM": {
+		case "MEDIUM_COUNT_DEC": {
 			return {
 				...state,
 				mediumCount: state.mediumCount - 1,
@@ -21,7 +21,7 @@ const sizeReducer = (state, action) => {
 	}
 };
 const SingleProduct = (props) => {
-	const { setItemsInCart } = useContext(ProductsContext);
+	const { Dispatch } = useContext(ProductsContext);
 	const [sizeState, sizeDispatch] = useReducer(
 		sizeReducer,
 		{
@@ -31,18 +31,46 @@ const SingleProduct = (props) => {
 		}
 	);
 	const onSmallClick = (e) => {
-		setItemsInCart((prevState) => prevState + 1);
-		sizeDispatch({ type: "SMALL" });
+		Dispatch({ type: "INC_CART_SIZE" });
+		Dispatch({
+			type: "ADD_PROD_2_CART",
+			size: "small",
+			id: props.id,
+		});
+		console.log(props);
+		Dispatch({
+			type: "INC_CART_TOTAL",
+			newPrice: props.price,
+		});
+		sizeDispatch({ type: "SMALL_COUNT_DEC" });
 	};
 	const onLargeClick = (e) => {
-		setItemsInCart((prevState) => prevState + 1);
+		Dispatch({
+			type: "INC_CART_TOTAL",
+			newPrice: props.price,
+		});
+		Dispatch({ type: "INC_CART_SIZE" });
+		Dispatch({
+			type: "ADD_PROD_2_CART",
+			size: "large",
+			id: props.id,
+		});
 
-		sizeDispatch({ type: "LARGE" });
+		sizeDispatch({ type: "LARGE_COUNT_DEC" });
 	};
 	const onMediumClick = (e) => {
-		setItemsInCart((prevState) => prevState + 1);
+		Dispatch({ type: "INC_CART_SIZE" });
+		Dispatch({
+			type: "ADD_PROD_2_CART",
+			size: "medium",
+			id: props.id,
+		});
+		Dispatch({
+			type: "INC_CART_TOTAL",
+			newPrice: props.price,
+		});
 
-		sizeDispatch({ type: "MEDIUM" });
+		sizeDispatch({ type: "MEDIUM_COUNT_DEC" });
 	};
 	return (
 		<div className="product">
